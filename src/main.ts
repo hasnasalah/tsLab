@@ -1,22 +1,20 @@
-class Product{
-   name: string;
-   sku: string;
-   price: number;
-  constructor(name: string, sku: string, price: number) {
-    this.name = name;
-    this.sku = sku;
-    this.price = price;
+
+import DigitalProduct from "./modules/DigitalProduct.js";
+import PhysicalProduct from "./modules/PhysicalProduct.js";
+import Product from "./modules/product.js";
+ const newPhysicalProduct=new PhysicalProduct("T-shirt","T14OS45",16.99,0.5);
+const newDigitalProduct=new DigitalProduct("USB","U487SSI4",50.79,64);
+
+const products: Product[]=[newPhysicalProduct,newDigitalProduct];
+
+for( const product of products){
+    product.displayDetails();
+      if (product instanceof PhysicalProduct) {
+    console.log("Weight:", product.weightKg);
+    console.log("Price: ",product.getPriceWithTax())
+  } else if (product instanceof DigitalProduct) {
+    console.log("File Size:", product.fileSizes);
+    console.log("Price: ",product.getPriceWithTax())
   }
-
-
-
-   displayDetails():void{
-    console.log(this.name+" "+this.sku+" "+this.price);
-   }
-   getPriceWithTax():number{
-
-    return this.price * 1;
-
-   }
-
 }
+
