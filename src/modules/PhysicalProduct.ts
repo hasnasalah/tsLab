@@ -1,7 +1,8 @@
 
 import Product from "./product.js"
 import { calculateTax } from "../utils/taxCalculator.js";
- export default class PhysicalProduct extends Product{
+import type {DiscountableProduct}  from "./DiscountableProduct .js";
+ export default class PhysicalProduct extends Product implements DiscountableProduct{
     weight: number;
     private tax:number=10;
      constructor(name: string, sku: string, price: number,weight: number) 
@@ -15,6 +16,9 @@ import { calculateTax } from "../utils/taxCalculator.js";
     getPriceWithTax():number{
 
     return calculateTax(this.price,this.tax) ;
+    }
 
+   applyDiscount():number{
+  return this.price*0.1;
    }
 }

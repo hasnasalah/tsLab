@@ -15,5 +15,8 @@ export default class PhysicalProduct extends Product {
     getPriceWithTax() {
         return calculateTax(this.price, this.tax);
     }
+    applyDiscount() {
+        return this.price * 0.1;
+    }
 }
 //# sourceMappingURL=PhysicalProduct.js.map
