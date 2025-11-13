@@ -10,11 +10,11 @@ export default class DigitalProduct extends Product{
      };
     get fileSizes(){
          
-    return (this.fileSize+"MS");
+    return (this.fileSize+"MB");
     }
-    getPriceWithTax():number{
+    getPriceWithTax():string{
 
-    return calculateTax(this.price,this.tax) ;
+    return `$${calculateTax(this.price,this.tax).toFixed(2)}` ;
 
    }
 

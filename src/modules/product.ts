@@ -14,9 +14,9 @@ export default class Product{
     displayDetails():void{
     console.log(this.name+" "+this.sku+" ");
    }
-    getPriceWithTax():number{
+    getPriceWithTax():string{
 
-    return this.price * 1;
+    return `$${(this.price * 1).toFixed(2)}`;
 
    }
 
